@@ -8,23 +8,27 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
             color: #333;
             overflow-x: hidden;
         }
         header {
             text-align: center;
-            padding: 50px 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 60px 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 50% 10%;
+            border-bottom-right-radius: 50% 10%;
         }
         h1 {
-            font-size: 3em;
-            animation: fadeInDown 2s ease;
+            font-size: 3.5em;
+            animation: fadeInDown 1.5s ease;
+            color: #ff6f61;
         }
         h2 {
-            font-size: 1.5em;
-            animation: fadeInUp 2s ease;
+            font-size: 1.8em;
+            animation: fadeInUp 1.5s ease;
+            color: #6a0572;
         }
         @keyframes fadeInDown {
             0% {
@@ -48,27 +52,27 @@
         }
         .heart {
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background-color: #ff6f61;
             transform: rotate(-45deg);
-            animation: float 5s infinite;
+            animation: float 6s infinite;
         }
         .heart:before,
         .heart:after {
             content: "";
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background-color: #ff6f61;
             border-radius: 50%;
         }
         .heart:before {
-            top: -25px;
+            top: -30px;
             left: 0;
         }
         .heart:after {
-            left: 25px;
+            left: 30px;
             top: 0;
         }
         @keyframes float {
@@ -77,7 +81,7 @@
                 opacity: 1;
             }
             50% {
-                transform: translateY(-100px) rotate(-45deg);
+                transform: translateY(-150px) rotate(-45deg);
                 opacity: 0.7;
             }
             100% {
@@ -86,14 +90,20 @@
             }
         }
         #message {
-            padding: 20px;
-            margin: 50px auto;
+            padding: 30px;
+            margin: 70px auto;
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
             width: 80%;
-            max-width: 600px;
-            animation: fadeIn 3s ease;
+            max-width: 700px;
+            animation: fadeIn 2.5s ease;
+        }
+        #message p {
+            font-size: 1.3em;
+            color: #333;
+            line-height: 1.8;
         }
         @keyframes fadeIn {
             from {
@@ -102,6 +112,17 @@
             to {
                 opacity: 1;
             }
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-top: 2px solid #ff6f61;
+            margin-top: 50px;
+        }
+        footer p {
+            font-size: 1em;
+            color: #6a0572;
         }
     </style>
 </head>
@@ -112,20 +133,27 @@
     </header>
 
     <div id="message">
-        <p>From our first date to today, every moment has been an adventure filled with love and joy. Here's to many more years together.</p>
+        <p>Today is the day when I had seen you for the first time and trust me since then I falled in your beautiful eyes. The moment I had seen you I decided to put myself in your heart. Initially I though it would be easy but a week lator once I understood it won't be easy. I need to put
+        lot of efforts in fixning myself in your heart. But I thanks to you for giving me that opprtunity atleast. The hardest part was to get you out from that troma from your past, there was so many times I thought, am I doing right or not?
+        am I being selfish or will you be happy with me ever, lot of things going in my mind but zi don't know why I am scaring of loosing you always and I think that's the only motivation behind that efforts I put on. But thanks to God it's just happened and I am so happy
+        and now we are being together for one year. One of the best year of our life and hopefully this will remain consistently for the lifetime. We will stay together forever and grow together.</p>
     </div>
 
     <!-- Animated hearts -->
     <div class="heart" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
-    <div class="heart" style="top: 40%; left: 60%; animation-delay: 1s;"></div>
-    <div class="heart" style="top: 70%; left: 30%; animation-delay: 2s;"></div>
-    <div class="heart" style="top: 30%; left: 80%; animation-delay: 3s;"></div>
+    <div class="heart" style="top: 40%; left: 60%; animation-delay: 1.5s;"></div>
+    <div class="heart" style="top: 70%; left: 30%; animation-delay: 3s;"></div>
+    <div class="heart" style="top: 30%; left: 80%; animation-delay: 4.5s;"></div>
+
+    <footer>
+        <p>With all my love, forever and always ❤️</p>
+    </footer>
 
     <script>
         // Add interactive floating hearts
         const hearts = document.querySelectorAll('.heart');
         hearts.forEach(heart => {
-            const randomDuration = Math.random() * 3 + 3; // 3s to 6s
+            const randomDuration = Math.random() * 3 + 4; // 4s to 7s
             heart.style.animationDuration = `${randomDuration}s`;
         });
     </script>
