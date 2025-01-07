@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Anniversary</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 3em;
+            animation: fadeInDown 2s ease;
+        }
+        h2 {
+            font-size: 1.5em;
+            animation: fadeInUp 2s ease;
+        }
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #ff6f61;
+            transform: rotate(-45deg);
+            animation: float 5s infinite;
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #ff6f61;
+            border-radius: 50%;
+        }
+        .heart:before {
+            top: -25px;
+            left: 0;
+        }
+        .heart:after {
+            left: 25px;
+            top: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-100px) rotate(-45deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+        }
+        #message {
+            padding: 20px;
+            margin: 50px auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            width: 80%;
+            max-width: 600px;
+            animation: fadeIn 3s ease;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Happy One-Year Anniversary!</h1>
+        <h2>"A year of love, laughter, and cherished memories."</h2>
+    </header>
+
+    <div id="message">
+        <p>From our first date to today, every moment has been an adventure filled with love and joy. Here's to many more years together.</p>
+    </div>
+
+    <!-- Animated hearts -->
+    <div class="heart" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
+    <div class="heart" style="top: 40%; left: 60%; animation-delay: 1s;"></div>
+    <div class="heart" style="top: 70%; left: 30%; animation-delay: 2s;"></div>
+    <div class="heart" style="top: 30%; left: 80%; animation-delay: 3s;"></div>
+
+    <script>
+        // Add interactive floating hearts
+        const hearts = document.querySelectorAll('.heart');
+        hearts.forEach(heart => {
+            const randomDuration = Math.random() * 3 + 3; // 3s to 6s
+            heart.style.animationDuration = `${randomDuration}s`;
+        });
+    </script>
+</body>
+</html>
