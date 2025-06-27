@@ -1,181 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Anniversary</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: url('https://img.freepik.com/premium-photo/blurred-valentine39s-day-background-romantic-blur-stock-photography-blurred-valentine39s-day-background-romantic-blur-stock-photography_936686-16171.jpg?semt=ais_hybrid') no-repeat center center/cover;
-            color: #fff;
-            overflow-x: hidden;
-        }
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 50% 10%;
-            border-bottom-right-radius: 50% 10%;
-        }
-        h1 {
-            font-size: 2.5em;
-            animation: fadeInDown 1.5s ease;
-            color: #ff6f61;
-        }
-        h2 {
-            font-size: 1.2em;
-            animation: fadeInUp 1.5s ease;
-            color: #fff;
-        }
-        @keyframes fadeInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .heart {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-color: #ff6f61;
-            transform: rotate(-45deg);
-            animation: float 6s infinite;
-        }
-        .heart:before,
-        .heart:after {
-            content: "";
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-color: #ff6f61;
-            border-radius: 50%;
-        }
-        .heart:before {
-            top: -25px;
-            left: 0;
-        }
-        .heart:after {
-            left: 25px;
-            top: 0;
-        }
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(-45deg);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(-100px) rotate(-45deg);
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(0) rotate(-45deg);
-                opacity: 1;
-            }
-        }
-        #message {
-            padding: 20px;
-            margin: 40px auto;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 20px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-            width: 90%;
-            animation: fadeIn 2.5s ease;
-        }
-        #message p {
-            font-size: 1.2em;
-            color: #fff;
-            line-height: 1.5;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.6);
-            border-top: 2px solid #ff6f61;
-            margin-top: 30px;
-        }
-        footer p {
-            font-size: 1em;
-            color: #ff6f61;
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            h2 {
-                font-size: 1em;
-            }
-            #message p {
-                font-size: 1em;
-            }
-            .heart {
-                width: 40px;
-                height: 40px;
-            }
-            .heart:before,
-            .heart:after {
-                width: 40px;
-                height: 40px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>For My Bae 💕</title>
+  <style>
+      body {
+  margin: 0;
+  padding: 0;
+  background: #ffe6e6;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+  color: #333;
+}
+
+.heart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #cc0052;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 0.5rem;
+}
+
+.note {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #66002a;
+}
+
+/* Heart shape */
+.heart {
+  width: 100px;
+  height: 90px;
+  position: relative;
+  margin: 20px;
+}
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 90px;
+  background: #e60039;
+  border-radius: 50px 50px 0 0;
+}
+.heart::before {
+  left: 50px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Happy One-Year Anniversary!</h1>
-        <h2>"A year of love, laughter, and cherished memories."</h2>
-    </header>
-
-    <div id="message">
-        <p>Today is the day when I saw you for the first time, and trust me, since then, I have fallen for your beautiful eyes. From that moment, I decided to make a place for myself in your heart. Initially, I thought it would be easy, but a week later, I realized it wouldn't be. I knew I needed to put in a lot of effort to fix myself in your heart. But thank you for giving me that opportunity. 
-        <br><br>
-        The hardest part was helping you heal from the trauma of your past. Many times, I wondered, "Am I doing the right thing? Am I being selfish? Will you ever be happy with me?" So many thoughts ran through my mind, but I don't know why—I was always scared of losing you. I think that fear was the driving force behind all my efforts. 
-        <br><br>
-        But thanks to God, it happened. I am so happy that we have now been together for one year—one of the best years of our lives. I hope this love continues to grow and remain consistent for a lifetime. We will stay together forever and grow together.</p>
-    </div>
-
-    <!-- Animated hearts -->
-    <div class="heart" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
-    <div class="heart" style="top: 40%; left: 60%; animation-delay: 1.5s;"></div>
-    <div class="heart" style="top: 70%; left: 30%; animation-delay: 3s;"></div>
-    <div class="heart" style="top: 30%; left: 80%; animation-delay: 4.5s;"></div>
-
-    <footer>
-        <p>With all my love, forever and always ❤️</p>
-    </footer>
-
-    <script>
-        // Add interactive floating hearts
-        const hearts = document.querySelectorAll('.heart');
-        hearts.forEach(heart => {
-            const randomDuration = Math.random() * 3 + 4; // 4s to 7s
-            heart.style.animationDuration = `${randomDuration}s`;
-        });
-    </script>
+  <div class="heart-container">
+    <h1>To My One and Only</h1>
+    <p>You light up my world.</p>
+    <div class="heart"></div>
+    <p class="note">I love you more than words can say 😘</p>
+  </div>
 </body>
 </html>
