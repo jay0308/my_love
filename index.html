@@ -1,126 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>For My Bae 💖</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #ffe6e6, #fff0f5);
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    color: #333;
-    text-align: center;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Anniversary — Open the Letter</title>
+  <style>
+    :root{
+      --bg1:#f6d365;
+      --bg2:#fda085;
+      --accent:#ff6b6b;
+      --paper:#fffef8;
+      --card:#ffdede;
+      --shadow: rgba(0,0,0,0.12);
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;margin:0}
+    body{
+      display:flex;align-items:center;justify-content:center;
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      overflow:hidden;
+    }
+    .scene{
+      width:360px;max-width:90vw;height:640px;max-height:95vh;
+      position:relative;border-radius:20px;padding:28px;box-sizing:border-box;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      backdrop-filter: blur(6px);
+      display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+    }
+    h1{margin:6px 0 18px;color:#fff;text-align:center;font-size:20px;letter-spacing:0.4px}
+    p.lead{margin:0 0 18px;color:#fff9; font-size:13px;text-align:center}/* envelope */
+.stage{position:relative;width:240px;height:160px;}
+.envelope{
+  width:100%;height:100%;position:relative;transform-style:preserve-3d;cursor:pointer;
+  transition:transform 600ms cubic-bezier(.2,.9,.2,1);
+  perspective:1000px;
+}
+.body{
+  position:absolute;left:0;right:0;bottom:0;top:0;border-radius:8px;background:linear-gradient(180deg,var(--card), #ffd3d3);
+  box-shadow:0 8px 18px var(--shadow);overflow:hidden;display:flex;align-items:center;justify-content:center;
+  transform:translateZ(0);
+}
+.flap{
+  position:absolute;left:0;right:0;top:0;height:60%;background:linear-gradient(180deg,#ffd7d7,#ffbdbd);
+  transform-origin:top center;border-top-left-radius:10px;border-top-right-radius:10px;z-index:5;
+  transition: transform 700ms cubic-bezier(.2,.9,.2,1);
+  box-shadow:0 6px 14px rgba(0,0,0,0.12);
+  display:flex;align-items:flex-start;justify-content:center;padding-top:12px
+}
+.flap::after{content:'';width:0;height:0;border-left:120px solid transparent;border-right:120px solid transparent;border-top:60px solid rgba(255,255,255,0.06);position:absolute;top:58%;left:0}
 
-  /* Floating hearts animation */
-  .floating-heart {
-    position: absolute;
-    bottom: -50px;
-    font-size: 24px;
-    color: #e60039;
-    opacity: 0;
-    animation: floatUp ease-in infinite;
-  }
+.seal{
+  width:54px;height:54px;border-radius:50%;background:linear-gradient(180deg,#ff8a8a,#ff5e5e);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;box-shadow:0 6px 12px rgba(0,0,0,0.18);z-index:6;transform:translateY(6px)
+}
 
-  @keyframes floatUp {
-    0% { transform: translateY(0) scale(0.6); opacity: 0; }
-    10% { opacity: 1; }
-    100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
-  }
+.letter{
+  position:absolute;left:12px;right:12px;top:16px;bottom:16px;background:var(--paper);border-radius:6px;padding:20px;box-sizing:border-box;
+  transform:translateY(110%);transition: transform 900ms cubic-bezier(.2,.9,.2,1);box-shadow:0 10px 20px rgba(0,0,0,0.12);
+  overflow:auto;z-index:3;
+}
 
-  /* Center container */
-  .heart-container {
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-  }
+.envelope.open .flap{transform: rotateX(-180deg);}
+.envelope.open .letter{transform: translateY(12%);} /* letter pulls up */
 
-  h1, p {
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-  }
-  h1 { animation-delay: 0.5s; font-size: 3rem; color: #cc0052; margin-bottom: 0.3rem; }
-  p { animation-delay: 1.2s; font-size: 1.2rem; }
+.letter .text{white-space:pre-wrap;color:#333;font-size:14px;line-height:1.45}
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+/* little hearts floating */
+.hearts{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;width:280px;height:140px;pointer-events:none;overflow:visible}
+.heart{
+  position:absolute;width:16px;height:16px;background:transparent;opacity:0;font-size:12px;
+  animation: floatUp linear infinite;
+}
+.heart svg{width:100%;height:100%;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.12));}
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(0.8);opacity:0}
+  10%{opacity:1}
+  100%{transform:translateY(-200px) scale(1.2);opacity:0}
+}
 
-  /* Pulsing heart */
-  .heart {
-    width: 120px;
-    height: 110px;
-    position: relative;
-    margin: 30px;
-    animation: pulse 1.2s infinite ease-in-out;
-  }
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 120px;
-    height: 110px;
-    background: #e60039;
-    border-radius: 60px 60px 0 0;
-  }
-  .heart::before {
-    left: 60px;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
-  }
-  .heart::after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin: 100% 100%;
-  }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-  }
+/* typing cursor */
+.cursor{display:inline-block;width:8px;height:14px;background:#222;margin-left:6px;vertical-align:bottom;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
 
-  .note {
-    margin-top: 2rem;
-    font-style: italic;
-    color: #66002a;
-    animation: fadeIn 3s forwards;
-    animation-delay: 1.8s;
-  }
-</style>
+/* footer */
+.controls{margin-top:18px;display:flex;gap:10px}
+.btn{background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.12);color:#fff;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer}
+.small{font-size:12px;opacity:0.9}
+
+/* responsive */
+@media (max-width:420px){.scene{height:78vh;padding:18px}.stage{width:220px;height:150px}}
+
+  </style>
 </head>
 <body>
+  <div class="scene" role="main">
+    <h1>Open your letter</h1>
+    <p class="lead">Tap the envelope to open — your anniversary message awaits.</p><div class="stage" aria-hidden="false">
+  <div class="envelope" id="envelope" tabindex="0" role="button" aria-pressed="false" aria-label="Open letter">
+    <div class="flap" id="flap">
+      <div class="seal">❤</div>
+    </div>
+    <div class="letter" id="letter">
+      <div class="text" id="text"></div>
+    </div>
+    <div class="body" aria-hidden="true"></div>
+  </div>
 
-<div class="heart-container">
-  <h1>To My One and Only 💕</h1>
-  <p>You light up my world.</p>
-  <div class="heart"></div>
-  <p class="note">I love you more than words can say 😘</p>
-  <a href="upi://pay?pa=dummy@upi&am=10&cu=INR&tn=Payment+for+Order123">Pay with UPI</a>
+  <div class="hearts" id="hearts"></div>
 </div>
 
-<script>
-  // Generate floating hearts
-  function createHeart() {
-    const heart = document.createElement('div');
-    heart.className = 'floating-heart';
-    heart.style.left = `${Math.random() * 100}%`;
-    heart.style.fontSize = `${24 + Math.random() * 16}px`;
-    heart.style.animationDuration = `${4 + Math.random()*3}s`;
-    heart.textContent = '💖';
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 7000);
-  }
-  setInterval(createHeart, 500);
-</script>
+<div class="controls">
+  <button class="btn" id="resetBtn">Reset</button>
+  <button class="btn" id="revealAll">Reveal Text</button>
+</div>
 
-</body>
+  </div>  <script>
+    // The user's message (kept exactly as provided)
+    const message = `Dear love,\nI know, I am a little old school type guy, think differently, I am trying but may be still not up to the mark. I am sorry 😔\nBut I love you the most u know that may be little hesitant to show or wrong timing or what I don't know but something is wrong I did and make you hurt.\nItna dimag ni chalta mera shayad in cheezon me aur tum gussa ho jati ho to aur ni chalta 😔\n\nBut I love you so much 🥰\nWishing us a happy anniversary 💕`;
+
+    const envelope = document.getElementById('envelope');
+    const textEl = document.getElementById('text');
+    const letter = document.getElementById('letter');
+    const heartsEl = document.getElementById('hearts');
+    const resetBtn = document.getElementById('resetBtn');
+    const revealAll = document.getElementById('revealAll');
+
+    let typingInterval = null;
+
+    // Accessibility: allow Enter/Space to open
+    envelope.addEventListener('click', toggleOpen);
+    envelope.addEventListener('keyup', (e)=>{if(e.key==='Enter' || e.key===' '){toggleOpen()}});
+
+    resetBtn.addEventListener('click', reset);
+    revealAll.addEventListener('click', revealFull);
+
+    function toggleOpen(){
+      const open = envelope.classList.toggle('open');
+      envelope.setAttribute('aria-pressed', open);
+      if(open){
+        startTyping();
+        startHearts();
+      } else {
+        stopTyping();
+      }
+    }
+
+    function startTyping(){
+      textEl.innerHTML = '';
+      const chars = Array.from(message);
+      let i=0;
+      typingInterval = setInterval(()=>{
+        if(i>=chars.length){
+          clearInterval(typingInterval);typingInterval=null;return;
+        }
+        const ch = chars[i++];
+        // simple emoji & html safe append
+        textEl.innerHTML += ch.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+        // auto-scroll letter if overflow
+        letter.scrollTop = letter.scrollHeight; 
+      }, 25); // typing speed (ms) — tweakable
+    }
+
+    function revealFull(){
+      if(typingInterval) {clearInterval(typingInterval);typingInterval=null}
+      textEl.innerText = message;
+      letter.scrollTop = letter.scrollHeight;
+    }
+
+    function stopTyping(){
+      if(typingInterval){clearInterval(typingInterval);typingInterval=null}
+    }
+
+    function reset(){
+      envelope.classList.remove('open');
+      envelope.setAttribute('aria-pressed', false);
+      stopTyping();
+      textEl.innerHTML = '';
+      heartsEl.innerHTML = '';
+    }
+
+    // Floating hearts generator
+    const heartSvgs = [
+      '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#ff6b6b" d="M23.6 4.6c-2.5 0-4.2 1.7-5.6 3-1.4-1.3-3.1-3-5.6-3C8 4.6 4 7.7 4 12.4 4 19.1 16 27 16 27s12-7.9 12-14.6c0-4.7-4-7.8-4.4-7.8z"/></svg>',
+      '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#ff9aa2" d="M16 28s-9.3-6.6-12-11.6C1.2 10 6.6 6 10.6 6c2.7 0 4.2 1.8 5.4 3 1.3-1.2 2.7-3 5.4-3 4 0 9.4 4 6.6 10.4C25.3 21.4 16 28 16 28z"/></svg>'
+    ];
+
+    function startHearts(){
+      heartsEl.innerHTML = '';
+      for(let j=0;j<10;j++){
+        createHeart(j);
+      }
+    }
+
+    function createHeart(index){
+      const span = document.createElement('div');
+      span.className = 'heart';
+      span.style.left = (10 + Math.random()*80) + '%';
+      span.style.bottom = (10 + Math.random()*10) + 'px';
+      const delay = (Math.random()*1.2).toFixed(2)+'s';
+      const dur = (3 + Math.random()*2).toFixed(2)+'s';
+      span.style.animationDelay = delay;
+      span.style.animationDuration = dur;
+      // scale randomly
+      span.style.transform = `translateY(0) scale(${0.7 + Math.random()*0.6})`;
+      span.innerHTML = heartSvgs[Math.floor(Math.random()*heartSvgs.length)];
+      heartsEl.appendChild(span);
+      // remove after animation
+      setTimeout(()=>{span.remove()}, (parseFloat(delay)+parseFloat(dur))*1000 + 500);
+    }
+
+    // small guiding animation on load — a gentle nudge to click
+    (function nudge(){
+      envelope.animate([
+        { transform: 'translateY(0) scale(1)' },
+        { transform: 'translateY(-6px) scale(1.02)' },
+        { transform: 'translateY(0) scale(1)' }
+      ], { duration: 1400, iterations: 2 });
+    })();
+  </script></body>
 </html>
